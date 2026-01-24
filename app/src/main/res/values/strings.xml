@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">PM01P2026</string>
+    <string name="Nombre">Nombre</string>
+    <string name="Apellido">Apellido</string>
+    <int name="Edad">Edad</int>
+    <string name="Correo">Escribe tu correo</string>
+    <string name="Guardar">Guardad</string>
 </resources>
