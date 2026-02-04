@@ -4,6 +4,8 @@ public class Transacciones
 {
     //DB NAME
     public static final String dbname = "DBPM01";
+
+    public static final int dbversion = 1;
     //DB TABLE
 
     public static final String tbpersons = "personas";
@@ -15,7 +17,7 @@ public class Transacciones
     public static final String correo = "correo";
     public static final String foto = "foto";
 
-    //DDL
+    //DDL Create
 
     public static final String CreateTablePerson = "CREATE TABLE " + tbpersons + " ( " +
 
@@ -25,4 +27,12 @@ public class Transacciones
             edad + " INTEGER , " +
             correo + " TEXT , " +
             foto   + " TEXT  )" ;
+
+    //DDL Drop
+    public static final String DropTablePerson = "DROP TABLE IF Exts" + tbpersons;
+
+    //DML
+    public static final String SelecTablePerson = "SELECT * FROM" + tbpersons;
+
+
 }
