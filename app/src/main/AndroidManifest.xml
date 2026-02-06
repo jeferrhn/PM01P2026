@@ -9,25 +9,22 @@
         android:name="android.hardware.camera2"
         android:required="false" />
 
-    <uses-permission android:name="android.permission.CAMERA" /> <!-- Necesario para Android 11+ para poder abrir apps externas como la cámara -->
-    <queries>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
-        <!-- Navegador -->
+    <queries>
         <intent>
             <action android:name="android.intent.action.VIEW" />
-
             <data android:scheme="http" />
         </intent>
-
-        <!-- Cámara (CORREGIDO) -->
         <intent>
             <action android:name="android.media.action.IMAGE_CAPTURE" />
         </intent>
-
-        <!-- Galería -->
+        <intent>
+            <action android:name="android.media.action.VIDEO_CAPTURE" />
+        </intent>
         <intent>
             <action android:name="android.intent.action.GET_CONTENT" />
-
             <data android:mimeType="image/*" />
         </intent>
     </queries>
@@ -49,10 +46,19 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
     </application>
 
 </manifest>
