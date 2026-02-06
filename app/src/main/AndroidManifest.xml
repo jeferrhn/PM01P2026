@@ -2,36 +2,35 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
-
     <uses-feature
         android:name="android.hardware.camera2"
         android:required="false" />
-    <uses-permission android:name="android.permission.CAMERA" />
 
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- Necesario para Android 11+ para poder abrir apps externas como la cámara -->
     <queries>
 
-        <!-- Brower -->
+        <!-- Navegador -->
         <intent>
-            <action android:name="android.intent.action.VIEW"/>
-                <data android:scheme="http"/>
+            <action android:name="android.intent.action.VIEW" />
+
+            <data android:scheme="http" />
         </intent>
 
-        <!-- Camera -->
+        <!-- Cámara (CORREGIDO) -->
         <intent>
-            <action android:name="android.medria.action.IMAGE_CAPTURE"/>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
         </intent>
 
-        <!-- Gallery -->
+        <!-- Galería -->
         <intent>
-            <action android:name="android.intent.action.GET_CONTENT"/>
-        </intent>
+            <action android:name="android.intent.action.GET_CONTENT" />
 
+            <data android:mimeType="image/*" />
+        </intent>
     </queries>
-
 
     <application
         android:allowBackup="true"
@@ -42,6 +41,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PM01P2026">
+        <activity
+            android:name=".ActivityCombo"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
